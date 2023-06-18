@@ -1,0 +1,122 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="DatabaseModelStoreContainer" CdmEntityContainer="DatabaseEntities">
+    <EntitySetMapping Name="carts">
+      <EntityTypeMapping TypeName="DatabaseModel.cart">
+        <MappingFragment StoreEntitySet="cart">
+          <ScalarProperty Name="cart_id" ColumnName="cart_id" />
+          <ScalarProperty Name="customer_id" ColumnName="customer_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="chats">
+      <EntityTypeMapping TypeName="DatabaseModel.chat">
+        <MappingFragment StoreEntitySet="chat">
+          <ScalarProperty Name="chat_id" ColumnName="chat_id" />
+          <ScalarProperty Name="shop_id" ColumnName="shop_id" />
+          <ScalarProperty Name="customer_id" ColumnName="customer_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="customers">
+      <EntityTypeMapping TypeName="DatabaseModel.customer">
+        <MappingFragment StoreEntitySet="customer">
+          <ScalarProperty Name="customer_id" ColumnName="customer_id" />
+          <ScalarProperty Name="phone_num" ColumnName="phone_num" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="address" ColumnName="address" />
+          <ScalarProperty Name="nama" ColumnName="nama" />
+          <ScalarProperty Name="pass" ColumnName="pass" />
+          <ScalarProperty Name="saldo" ColumnName="saldo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="items">
+      <EntityTypeMapping TypeName="DatabaseModel.item">
+        <MappingFragment StoreEntitySet="item">
+          <ScalarProperty Name="item_id" ColumnName="item_id" />
+          <ScalarProperty Name="shop_id" ColumnName="shop_id" />
+          <ScalarProperty Name="item_name" ColumnName="item_name" />
+          <ScalarProperty Name="inventory" ColumnName="inventory" />
+          <ScalarProperty Name="expiration_date" ColumnName="expiration_date" />
+          <ScalarProperty Name="price" ColumnName="price" />
+          <ScalarProperty Name="item_image_path" ColumnName="item_image_path" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="item_header">
+      <EntityTypeMapping TypeName="DatabaseModel.item_header">
+        <MappingFragment StoreEntitySet="item_header">
+          <ScalarProperty Name="item_header_id" ColumnName="item_header_id" />
+          <ScalarProperty Name="cart_id" ColumnName="cart_id" />
+          <ScalarProperty Name="item_id" ColumnName="item_id" />
+          <ScalarProperty Name="quantity" ColumnName="quantity" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="pets">
+      <EntityTypeMapping TypeName="DatabaseModel.pet">
+        <MappingFragment StoreEntitySet="pet">
+          <ScalarProperty Name="pet_id" ColumnName="pet_id" />
+          <ScalarProperty Name="shop_id" ColumnName="shop_id" />
+          <ScalarProperty Name="pet_name" ColumnName="pet_name" />
+          <ScalarProperty Name="umur" ColumnName="umur" />
+          <ScalarProperty Name="price" ColumnName="price" />
+          <ScalarProperty Name="gender" ColumnName="gender" />
+          <ScalarProperty Name="species" ColumnName="species" />
+          <ScalarProperty Name="pet_image_path" ColumnName="pet_image_path" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="pet_header">
+      <EntityTypeMapping TypeName="DatabaseModel.pet_header">
+        <MappingFragment StoreEntitySet="pet_header">
+          <ScalarProperty Name="pet_header_id" ColumnName="pet_header_id" />
+          <ScalarProperty Name="cart_id" ColumnName="cart_id" />
+          <ScalarProperty Name="pet_id" ColumnName="pet_id" />
+          <ScalarProperty Name="quantity" ColumnName="quantity" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="shops">
+      <EntityTypeMapping TypeName="DatabaseModel.shop">
+        <MappingFragment StoreEntitySet="shop">
+          <ScalarProperty Name="shop_id" ColumnName="shop_id" />
+          <ScalarProperty Name="shop_phone_number" ColumnName="shop_phone_number" />
+          <ScalarProperty Name="shop_address" ColumnName="shop_address" />
+          <ScalarProperty Name="shop_name" ColumnName="shop_name" />
+          <ScalarProperty Name="shop_pass" ColumnName="shop_pass" />
+          <ScalarProperty Name="shop_saldo" ColumnName="shop_saldo" />
+          <ScalarProperty Name="rating" ColumnName="rating" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="transactions">
+      <EntityTypeMapping TypeName="DatabaseModel.transaction">
+        <MappingFragment StoreEntitySet="transactions">
+          <ScalarProperty Name="trans_id" ColumnName="trans_id" />
+          <ScalarProperty Name="customer_id" ColumnName="customer_id" />
+          <ScalarProperty Name="shop_id" ColumnName="shop_id" />
+          <ScalarProperty Name="temp_saldo" ColumnName="temp_saldo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="wish_list">
+      <EntityTypeMapping TypeName="DatabaseModel.wish_list">
+        <MappingFragment StoreEntitySet="wish_list">
+          <ScalarProperty Name="cart_id" ColumnName="cart_id" />
+          <ScalarProperty Name="customer_id" ColumnName="customer_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="wishlists">
+      <EntityTypeMapping TypeName="DatabaseModel.wishlist">
+        <MappingFragment StoreEntitySet="wishlist">
+          <ScalarProperty Name="customer_id" ColumnName="customer_id" />
+          <ScalarProperty Name="pet_id" ColumnName="pet_id" />
+          <ScalarProperty Name="item_id" ColumnName="item_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

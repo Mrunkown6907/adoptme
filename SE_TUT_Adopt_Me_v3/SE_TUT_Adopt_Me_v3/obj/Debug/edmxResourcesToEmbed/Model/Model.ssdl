@@ -1,0 +1,362 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="DatabaseModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="cart">
+    <Key>
+      <PropertyRef Name="cart_id" />
+    </Key>
+    <Property Name="cart_id" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="customer_id" Type="varchar" MaxLength="255" Nullable="false" />
+  </EntityType>
+  <EntityType Name="chat">
+    <Key>
+      <PropertyRef Name="chat_id" />
+    </Key>
+    <Property Name="chat_id" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="shop_id" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="customer_id" Type="varchar" MaxLength="255" Nullable="false" />
+  </EntityType>
+  <EntityType Name="customer">
+    <Key>
+      <PropertyRef Name="customer_id" />
+    </Key>
+    <Property Name="customer_id" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="phone_num" Type="int" Nullable="false" />
+    <Property Name="email" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="address" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="nama" Type="char" MaxLength="255" Nullable="false" />
+    <Property Name="pass" Type="char" MaxLength="255" Nullable="false" />
+    <Property Name="saldo" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="item">
+    <Key>
+      <PropertyRef Name="item_id" />
+    </Key>
+    <Property Name="item_id" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="shop_id" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="item_name" Type="char" MaxLength="255" Nullable="false" />
+    <Property Name="inventory" Type="int" Nullable="false" />
+    <Property Name="expiration_date" Type="datetime" Nullable="false" />
+    <Property Name="price" Type="int" Nullable="false" />
+    <Property Name="item_image_path" Type="varchar" MaxLength="255" Nullable="false" />
+  </EntityType>
+  <EntityType Name="item_header">
+    <Key>
+      <PropertyRef Name="item_header_id" />
+    </Key>
+    <Property Name="item_header_id" Type="int" Nullable="false" />
+    <Property Name="cart_id" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="item_id" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="quantity" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="pet">
+    <Key>
+      <PropertyRef Name="pet_id" />
+    </Key>
+    <Property Name="pet_id" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="shop_id" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="pet_name" Type="char" MaxLength="255" Nullable="false" />
+    <Property Name="umur" Type="int" Nullable="false" />
+    <Property Name="price" Type="int" Nullable="false" />
+    <Property Name="gender" Type="char" MaxLength="10" Nullable="false" />
+    <Property Name="species" Type="char" MaxLength="255" Nullable="false" />
+    <Property Name="pet_image_path" Type="varchar" MaxLength="255" Nullable="false" />
+  </EntityType>
+  <EntityType Name="pet_header">
+    <Key>
+      <PropertyRef Name="pet_header_id" />
+    </Key>
+    <Property Name="pet_header_id" Type="int" Nullable="false" />
+    <Property Name="cart_id" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="pet_id" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="quantity" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="shop">
+    <Key>
+      <PropertyRef Name="shop_id" />
+    </Key>
+    <Property Name="shop_id" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="shop_phone_number" Type="int" Nullable="false" />
+    <Property Name="shop_address" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="shop_name" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="shop_pass" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="shop_saldo" Type="int" Nullable="false" />
+    <Property Name="rating" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="transactions">
+    <Key>
+      <PropertyRef Name="trans_id" />
+    </Key>
+    <Property Name="trans_id" Type="int" Nullable="false" />
+    <Property Name="customer_id" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="shop_id" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="temp_saldo" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="wish_list">
+    <Key>
+      <PropertyRef Name="cart_id" />
+    </Key>
+    <Property Name="cart_id" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="customer_id" Type="varchar" MaxLength="255" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'C:\USERS\MELVI\SOURCE\REPOS\SE_TUT_ADOPT_ME_V3\SE_TUT_ADOPT_ME_V3\APP_DATA\DATABASE.MDF.dbo.wishlist' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="wishlist">
+    <Key>
+      <PropertyRef Name="customer_id" />
+    </Key>
+    <Property Name="customer_id" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="pet_id" Type="varchar" MaxLength="255" />
+    <Property Name="item_id" Type="varchar" MaxLength="255" />
+  </EntityType>
+  <Association Name="FK__chat__customer_i__4D94879B">
+    <End Role="customer" Type="Self.customer" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="chat" Type="Self.chat" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="customer">
+        <PropertyRef Name="customer_id" />
+      </Principal>
+      <Dependent Role="chat">
+        <PropertyRef Name="customer_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__chat__shop_id__4CA06362">
+    <End Role="shop" Type="Self.shop" Multiplicity="1" />
+    <End Role="chat" Type="Self.chat" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="shop">
+        <PropertyRef Name="shop_id" />
+      </Principal>
+      <Dependent Role="chat">
+        <PropertyRef Name="shop_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__transacti__custo__5165187F">
+    <End Role="customer" Type="Self.customer" Multiplicity="1" />
+    <End Role="transactions" Type="Self.transactions" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="customer">
+        <PropertyRef Name="customer_id" />
+      </Principal>
+      <Dependent Role="transactions">
+        <PropertyRef Name="customer_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__transacti__shop___52593CB8">
+    <End Role="shop" Type="Self.shop" Multiplicity="1" />
+    <End Role="transactions" Type="Self.transactions" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="shop">
+        <PropertyRef Name="shop_id" />
+      </Principal>
+      <Dependent Role="transactions">
+        <PropertyRef Name="shop_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__wishlist__custom__47DBAE45">
+    <End Role="customer" Type="Self.customer" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="wishlist" Type="Self.wishlist" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="customer">
+        <PropertyRef Name="customer_id" />
+      </Principal>
+      <Dependent Role="wishlist">
+        <PropertyRef Name="customer_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__wishlist__item_i__49C3F6B7">
+    <End Role="item" Type="Self.item" Multiplicity="0..1" />
+    <End Role="wishlist" Type="Self.wishlist" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="item">
+        <PropertyRef Name="item_id" />
+      </Principal>
+      <Dependent Role="wishlist">
+        <PropertyRef Name="item_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__wishlist__pet_id__48CFD27E">
+    <End Role="pet" Type="Self.pet" Multiplicity="0..1" />
+    <End Role="wishlist" Type="Self.wishlist" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="pet">
+        <PropertyRef Name="pet_id" />
+      </Principal>
+      <Dependent Role="wishlist">
+        <PropertyRef Name="pet_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_cart_id_item_header">
+    <End Role="customer" Type="Self.customer" Multiplicity="1" />
+    <End Role="item_header" Type="Self.item_header" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="customer">
+        <PropertyRef Name="customer_id" />
+      </Principal>
+      <Dependent Role="item_header">
+        <PropertyRef Name="cart_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_cart_id_pet_header">
+    <End Role="customer" Type="Self.customer" Multiplicity="1" />
+    <End Role="pet_header" Type="Self.pet_header" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="customer">
+        <PropertyRef Name="customer_id" />
+      </Principal>
+      <Dependent Role="pet_header">
+        <PropertyRef Name="cart_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_cart_id_wish_list">
+    <End Role="cart" Type="Self.cart" Multiplicity="1" />
+    <End Role="wish_list" Type="Self.wish_list" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="cart">
+        <PropertyRef Name="cart_id" />
+      </Principal>
+      <Dependent Role="wish_list">
+        <PropertyRef Name="cart_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_item_id_item_header">
+    <End Role="item" Type="Self.item" Multiplicity="1" />
+    <End Role="item_header" Type="Self.item_header" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="item">
+        <PropertyRef Name="item_id" />
+      </Principal>
+      <Dependent Role="item_header">
+        <PropertyRef Name="item_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_pet_id_pet_header">
+    <End Role="pet" Type="Self.pet" Multiplicity="1" />
+    <End Role="pet_header" Type="Self.pet_header" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="pet">
+        <PropertyRef Name="pet_id" />
+      </Principal>
+      <Dependent Role="pet_header">
+        <PropertyRef Name="pet_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_shop_id_item">
+    <End Role="shop" Type="Self.shop" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="item" Type="Self.item" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="shop">
+        <PropertyRef Name="shop_id" />
+      </Principal>
+      <Dependent Role="item">
+        <PropertyRef Name="shop_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_shop_id_pet">
+    <End Role="shop" Type="Self.shop" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="pet" Type="Self.pet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="shop">
+        <PropertyRef Name="shop_id" />
+      </Principal>
+      <Dependent Role="pet">
+        <PropertyRef Name="shop_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="DatabaseModelStoreContainer">
+    <EntitySet Name="cart" EntityType="Self.cart" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="chat" EntityType="Self.chat" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="customer" EntityType="Self.customer" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="item" EntityType="Self.item" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="item_header" EntityType="Self.item_header" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="pet" EntityType="Self.pet" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="pet_header" EntityType="Self.pet_header" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="shop" EntityType="Self.shop" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="transactions" EntityType="Self.transactions" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="wish_list" EntityType="Self.wish_list" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="wishlist" EntityType="Self.wishlist" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [wishlist].[customer_id] AS [customer_id], 
+    [wishlist].[pet_id] AS [pet_id], 
+    [wishlist].[item_id] AS [item_id]
+    FROM [dbo].[wishlist] AS [wishlist]</DefiningQuery>
+    </EntitySet>
+    <AssociationSet Name="FK__chat__customer_i__4D94879B" Association="Self.FK__chat__customer_i__4D94879B">
+      <End Role="customer" EntitySet="customer" />
+      <End Role="chat" EntitySet="chat" />
+    </AssociationSet>
+    <AssociationSet Name="FK__chat__shop_id__4CA06362" Association="Self.FK__chat__shop_id__4CA06362">
+      <End Role="shop" EntitySet="shop" />
+      <End Role="chat" EntitySet="chat" />
+    </AssociationSet>
+    <AssociationSet Name="FK__transacti__custo__5165187F" Association="Self.FK__transacti__custo__5165187F">
+      <End Role="customer" EntitySet="customer" />
+      <End Role="transactions" EntitySet="transactions" />
+    </AssociationSet>
+    <AssociationSet Name="FK__transacti__shop___52593CB8" Association="Self.FK__transacti__shop___52593CB8">
+      <End Role="shop" EntitySet="shop" />
+      <End Role="transactions" EntitySet="transactions" />
+    </AssociationSet>
+    <AssociationSet Name="FK__wishlist__custom__47DBAE45" Association="Self.FK__wishlist__custom__47DBAE45">
+      <End Role="customer" EntitySet="customer" />
+      <End Role="wishlist" EntitySet="wishlist" />
+    </AssociationSet>
+    <AssociationSet Name="FK__wishlist__item_i__49C3F6B7" Association="Self.FK__wishlist__item_i__49C3F6B7">
+      <End Role="item" EntitySet="item" />
+      <End Role="wishlist" EntitySet="wishlist" />
+    </AssociationSet>
+    <AssociationSet Name="FK__wishlist__pet_id__48CFD27E" Association="Self.FK__wishlist__pet_id__48CFD27E">
+      <End Role="pet" EntitySet="pet" />
+      <End Role="wishlist" EntitySet="wishlist" />
+    </AssociationSet>
+    <AssociationSet Name="fk_cart_id_item_header" Association="Self.fk_cart_id_item_header">
+      <End Role="customer" EntitySet="customer" />
+      <End Role="item_header" EntitySet="item_header" />
+    </AssociationSet>
+    <AssociationSet Name="fk_cart_id_pet_header" Association="Self.fk_cart_id_pet_header">
+      <End Role="customer" EntitySet="customer" />
+      <End Role="pet_header" EntitySet="pet_header" />
+    </AssociationSet>
+    <AssociationSet Name="fk_cart_id_wish_list" Association="Self.fk_cart_id_wish_list">
+      <End Role="cart" EntitySet="cart" />
+      <End Role="wish_list" EntitySet="wish_list" />
+    </AssociationSet>
+    <AssociationSet Name="fk_item_id_item_header" Association="Self.fk_item_id_item_header">
+      <End Role="item" EntitySet="item" />
+      <End Role="item_header" EntitySet="item_header" />
+    </AssociationSet>
+    <AssociationSet Name="fk_pet_id_pet_header" Association="Self.fk_pet_id_pet_header">
+      <End Role="pet" EntitySet="pet" />
+      <End Role="pet_header" EntitySet="pet_header" />
+    </AssociationSet>
+    <AssociationSet Name="fk_shop_id_item" Association="Self.fk_shop_id_item">
+      <End Role="shop" EntitySet="shop" />
+      <End Role="item" EntitySet="item" />
+    </AssociationSet>
+    <AssociationSet Name="fk_shop_id_pet" Association="Self.fk_shop_id_pet">
+      <End Role="shop" EntitySet="shop" />
+      <End Role="pet" EntitySet="pet" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
