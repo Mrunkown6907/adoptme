@@ -9,7 +9,7 @@ namespace SE_TUT_Adopt_Me_v3.Repository
 {
     public class wish_repo
     {
-        static DatabaseEntities1 db = new DatabaseEntities1();
+        static DatabaseEntities2 db = new DatabaseEntities2();
 
         public void AddWishlist(string customerId, string petId, string itemId)
         {

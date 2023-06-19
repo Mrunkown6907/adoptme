@@ -9,15 +9,15 @@ namespace SE_TUT_Adopt_Me_v3.Repository
 {
     public class item_repo
     {
-        static DatabaseEntities1 db = new DatabaseEntities1();
+        static DatabaseEntities2 db = new DatabaseEntities2();
 
-        public void AddItem(string shopId, string itemName, int inventory, DateTime expirationDate, int price, string itemImagePath)
+        public static void AddItem(string shopId, string itemName, int inventory, DateTime expirationDate, int price, string itemImagePath)
         {
             item_factory.CreateItem( shopId, itemName, inventory, expirationDate, price, itemImagePath);
             db.SaveChanges();
         }
 
-        public void UpdateItem(string itemId, string shopId, string itemName, int inventory, DateTime expirationDate, int price, string itemImagePath)
+        public static void UpdateItem(string itemId, string shopId, string itemName, int inventory, DateTime expirationDate, int price, string itemImagePath)
         {
             var existingItem = db.items.Find(itemId);
             if (existingItem != null)
@@ -34,7 +34,7 @@ namespace SE_TUT_Adopt_Me_v3.Repository
         }
 
 
-        public void DeleteItem(string itemId)
+        public static void DeleteItem(string itemId)
         {
             var item = db.items.Find(itemId);
             if (item != null)
@@ -44,12 +44,12 @@ namespace SE_TUT_Adopt_Me_v3.Repository
             }
         }
 
-        public item GetItemById(string itemId)
+        public static item GetItemById(string itemId)
         {
             return db.items.Find(itemId);
         }
 
-        public List<item> GetAllItems()
+        public static List<item> GetAllItems()
         {
             return db.items.ToList();
         }

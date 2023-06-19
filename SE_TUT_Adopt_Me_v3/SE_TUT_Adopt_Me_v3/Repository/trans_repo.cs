@@ -9,7 +9,7 @@ namespace SE_TUT_Adopt_Me_v3.Repository
 {
     public class trans_repo
     {
-        static DatabaseEntities1 db = new DatabaseEntities1();
+        static DatabaseEntities2 db = new DatabaseEntities2();
 
         public void AddTransaction(string customerId, string shopId, int tempSaldo)
         {

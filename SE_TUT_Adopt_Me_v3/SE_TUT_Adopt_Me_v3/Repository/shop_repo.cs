@@ -9,15 +9,15 @@ namespace SE_TUT_Adopt_Me_v3.Repository
 {
     public class shop_repo
     {
-        static DatabaseEntities1 db = new DatabaseEntities1();
+        static DatabaseEntities2 db = new DatabaseEntities2();
 
-        public void AddShop(int shopPhoneNumber, string shopAddress, string shopName, string shopPass, int shopSaldo, int rating)
+        public static void AddShop(int shopPhoneNumber, string shopAddress, string shopName, string shopPass, int shopSaldo, int rating)
         {
             shop_factory.CreateShop(shopPhoneNumber, shopAddress, shopName, shopPass, shopSaldo, rating);
             db.SaveChanges();
         }
 
-        public void UpdateShop(string shop_id, int shop_phone_number, string shop_address, string shop_name, string shop_pass)
+        public static void UpdateShop(string shop_id, int shop_phone_number, string shop_address, string shop_name, string shop_pass)
         {
             var NewShop = db.shops.Find(shop_id);
             if (NewShop != null)
@@ -30,7 +30,7 @@ namespace SE_TUT_Adopt_Me_v3.Repository
             }
         }
 
-        public void AddSaldoToShop(string shopId, int saldoToAdd)
+        public static void AddSaldoToShop(string shopId, int saldoToAdd)
         {
             var Sshop = db.shops.Find(shopId);
             if (Sshop != null)
@@ -40,7 +40,7 @@ namespace SE_TUT_Adopt_Me_v3.Repository
             }
         }
 
-        public void ReduceSaldoFromShop(string shopId, int saldoToReduce)
+        public static void ReduceSaldoFromShop(string shopId, int saldoToReduce)
         {
             var Sshop = db.shops.Find(shopId);
             if (Sshop != null)
@@ -58,7 +58,7 @@ namespace SE_TUT_Adopt_Me_v3.Repository
             }
         }
 
-        public void DeleteShop(string shopId)
+        public static void DeleteShop(string shopId)
         {
             var shop = db.shops.Find(shopId);
             if (shop != null)
@@ -68,12 +68,12 @@ namespace SE_TUT_Adopt_Me_v3.Repository
             }
         }
 
-        public shop GetShopById(string shopId)
+        public static shop GetShopById(string shopId)
         {
             return db.shops.Find(shopId);
         }
 
-        public List<shop> GetAllShops()
+        public static List<shop> GetAllShops()
         {
             return db.shops.ToList();
         }

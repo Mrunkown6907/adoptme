@@ -9,15 +9,15 @@ namespace SE_TUT_Adopt_Me_v3.Repository
 {
     public class pet_repo
     {
-        static DatabaseEntities1 db = new DatabaseEntities1();
+        static DatabaseEntities2 db = new DatabaseEntities2();
 
-        public void AddPet(string shopId, string petName, int umur, int price, string gender, string species, string petImagePath)
+        public static void AddPet(string shopId, string petName, int umur, int price, string gender, string species, string petImagePath)
         {
             pet_factory.CreatePet( shopId, petName, umur, price, gender, species, petImagePath);
             db.SaveChanges();
         }
 
-        public void UpdatePet(string petId, string shopId, string petName, int umur, int price, string gender, string species, string petImagePath)
+        public static void UpdatePet(string petId, string shopId, string petName, int umur, int price, string gender, string species, string petImagePath)
         {
             var existingPet = db.pets.Find(petId);
             if (existingPet != null)
@@ -34,7 +34,7 @@ namespace SE_TUT_Adopt_Me_v3.Repository
             }
         }
 
-        public void DeletePet(string petId)
+        public static void DeletePet(string petId)
         {
             var pet = db.pets.Find(petId);
             if (pet != null)
@@ -44,12 +44,12 @@ namespace SE_TUT_Adopt_Me_v3.Repository
             }
         }
 
-        public pet GetPetById(string petId)
+        public static pet GetPetById(string petId)
         {
             return db.pets.Find(petId);
         }
 
-        public List<pet> GetAllPets()
+        public static List<pet> GetAllPets()
         {
             return db.pets.ToList();
         }
