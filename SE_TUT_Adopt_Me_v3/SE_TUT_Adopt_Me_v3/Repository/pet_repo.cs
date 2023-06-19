@@ -1,4 +1,5 @@
-﻿using SE_TUT_Adopt_Me_v3.Model;
+﻿using SE_TUT_Adopt_Me_v3.Factory;
+using SE_TUT_Adopt_Me_v3.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,11 +9,11 @@ namespace SE_TUT_Adopt_Me_v3.Repository
 {
     public class pet_repo
     {
-        static DatabaseEntities db = new DatabaseEntities();
+        static DatabaseEntities1 db = new DatabaseEntities1();
 
-        public void AddPet(pet Pet)
+        public void AddPet(string shopId, string petName, int umur, int price, string gender, string species, string petImagePath)
         {
-            db.pets.Add(Pet);
+            pet_factory.CreatePet( shopId, petName, umur, price, gender, species, petImagePath);
             db.SaveChanges();
         }
 

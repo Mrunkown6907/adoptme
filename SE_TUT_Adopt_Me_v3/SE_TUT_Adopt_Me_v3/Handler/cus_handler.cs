@@ -11,11 +11,6 @@ namespace SE_TUT_Adopt_Me_v3.Handler
     public class cus_handler
     {
 
-        public bool IsUsernameTaken(string username)
-        {
-            return cus_repo.GetByUsername(username) != null;
-        }
-
         public bool IsEmailTaken(string email)
         {
             return cus_repo.GetByEmail(email) != null;
@@ -28,7 +23,7 @@ namespace SE_TUT_Adopt_Me_v3.Handler
 
         public bool IsDuplicateUser(string customerId, string email, int phoneNumber)
         {
-            return IsUsernameTaken(customerId) || IsEmailTaken(email) || IsPhoneNumberTaken(phoneNumber);
+            return IsEmailTaken(email) || IsPhoneNumberTaken(phoneNumber);
         }
 
         public bool IsValidPassword(string password, string confirmPassword)
@@ -45,7 +40,7 @@ namespace SE_TUT_Adopt_Me_v3.Handler
                 return false; // Another user already exists with the given email or phone number
             }
 
-            cus_repo.UpdateCustomer(Customer.customer_id, Customer.phone_num, Customer.email, Customer.address, Customer.nama, Customer.pass);
+            cus_repo.UpdateCustomer(Customer.customer_id,Customer.phone_num, Customer.email, Customer.address, Customer.nama, Customer.pass);
             return true;
         }
 
@@ -61,8 +56,8 @@ namespace SE_TUT_Adopt_Me_v3.Handler
                 return false; // Password and confirm password do not match
             }
 
-            var Customer = cus_factory.CreateCustomer(customerId, phoneNumber, email, address, name, password, saldo);
-            cus_repo.AddCustomer(Customer);
+            var Customer = cus_factory.CreateCustomer(phoneNumber, email, address, name, password);
+            cus_repo.AddCustomer(phoneNumber, email, address, name, password);
             return true;
         }
     }

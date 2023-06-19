@@ -1,4 +1,5 @@
-﻿using SE_TUT_Adopt_Me_v3.Model;
+﻿using SE_TUT_Adopt_Me_v3.Factory;
+using SE_TUT_Adopt_Me_v3.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,11 +9,11 @@ namespace SE_TUT_Adopt_Me_v3.Repository
 {
     public class chat_repo
     {
-        static DatabaseEntities db = new DatabaseEntities();
+        static DatabaseEntities1 db = new DatabaseEntities1();
 
-        public void AddChat(chat Chat)
+        public void AddChat(string shopId, string customerId)
         {
-            db.chats.Add(Chat);
+            chat_factory.CreateChat( shopId, customerId);
             db.SaveChanges();
         }
 

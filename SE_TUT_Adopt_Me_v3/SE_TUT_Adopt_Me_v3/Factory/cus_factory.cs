@@ -12,7 +12,7 @@ namespace SE_TUT_Adopt_Me_v3.Factory
         {
             return new customer
             {
-                customer_id = customerId,
+                customer_id = GenerateUniqueId(),
                 phone_num = phoneNum,
                 email = email,
                 address = address,
@@ -20,6 +20,12 @@ namespace SE_TUT_Adopt_Me_v3.Factory
                 pass = pass,
                 saldo = 0
             };
+        }
+
+        static string GenerateUniqueId()
+        {
+            Guid uniqueGuid = Guid.NewGuid();
+            return uniqueGuid.ToString();
         }
     }
 }

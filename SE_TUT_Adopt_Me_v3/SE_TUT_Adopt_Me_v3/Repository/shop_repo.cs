@@ -1,4 +1,5 @@
-﻿using SE_TUT_Adopt_Me_v3.Model;
+﻿using SE_TUT_Adopt_Me_v3.Factory;
+using SE_TUT_Adopt_Me_v3.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,11 +9,11 @@ namespace SE_TUT_Adopt_Me_v3.Repository
 {
     public class shop_repo
     {
-        static DatabaseEntities db = new DatabaseEntities();
+        static DatabaseEntities1 db = new DatabaseEntities1();
 
-        public void AddShop(shop Shop)
+        public void AddShop(int shopPhoneNumber, string shopAddress, string shopName, string shopPass, int shopSaldo, int rating)
         {
-            db.shops.Add(Shop);
+            shop_factory.CreateShop(shopPhoneNumber, shopAddress, shopName, shopPass, shopSaldo, rating);
             db.SaveChanges();
         }
 

@@ -8,11 +8,11 @@ namespace SE_TUT_Adopt_Me_v3.Factory
 {
     public class item_factory
     {
-        public static item CreateItem(string itemId, string shopId, string itemName, int inventory, DateTime expirationDate, int price, string itemImagePath)
+        public static item CreateItem(string shopId, string itemName, int inventory, DateTime expirationDate, int price, string itemImagePath)
         {
             return new item
             {
-                item_id = itemId,
+                item_id = GenerateUniqueId(),
                 shop_id = shopId,
                 item_name = itemName,
                 inventory = inventory,
@@ -20,6 +20,13 @@ namespace SE_TUT_Adopt_Me_v3.Factory
                 price = price,
                 item_image_path = itemImagePath
             };
+        }
+        static string GenerateUniqueId()
+        {
+            Random random = new Random();
+            int randomNumber = random.Next(100, 1000); // Generate a random 3-digit number
+            string uniqueId = "IT" + randomNumber.ToString();
+            return uniqueId;
         }
     }
 }

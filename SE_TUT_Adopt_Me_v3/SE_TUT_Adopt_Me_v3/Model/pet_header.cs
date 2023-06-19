@@ -14,7 +14,7 @@ namespace SE_TUT_Adopt_Me_v3.Model
     
     public partial class pet_header
     {
-        public int pet_header_id { get; set; }
+        public string pet_header_id { get; set; }
         public string cart_id { get; set; }
         public string pet_id { get; set; }
         public int quantity { get; set; }

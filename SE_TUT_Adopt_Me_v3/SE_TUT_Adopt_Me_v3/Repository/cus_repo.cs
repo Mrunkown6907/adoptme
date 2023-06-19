@@ -9,11 +9,12 @@ namespace SE_TUT_Adopt_Me_v3.Repository
 {
     public class cus_repo
     {
-        static DatabaseEntities db = new DatabaseEntities();
+        static DatabaseEntities1 db = new DatabaseEntities1();
 
         public static void AddCustomer(int phoneNum, string email, string address, string nama, string pass)
         {
             cus_factory.CreateCustomer(phoneNum, email, address, nama, pass);
+            db.SaveChanges();
         }
 
         public static void UpdateCustomer(string customer_id, int Phone_num, string Email, string Address, string Nama, string Pass)

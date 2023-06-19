@@ -8,11 +8,11 @@ namespace SE_TUT_Adopt_Me_v3.Factory
 {
     public class shop_factory
     {
-        public static shop CreateShop(string shopId, int shopPhoneNumber, string shopAddress, string shopName, string shopPass, int shopSaldo, int rating)
+        public static shop CreateShop(int shopPhoneNumber, string shopAddress, string shopName, string shopPass, int shopSaldo, int rating)
         {
             return new shop
             {
-                shop_id = shopId,
+                shop_id = GenerateUniqueId(),
                 shop_phone_number = shopPhoneNumber,
                 shop_address = shopAddress,
                 shop_name = shopName,
@@ -20,6 +20,14 @@ namespace SE_TUT_Adopt_Me_v3.Factory
                 shop_saldo = shopSaldo,
                 rating = rating
             };
+        }
+
+        static string GenerateUniqueId()
+        {
+            Random random = new Random();
+            int randomNumber = random.Next(100, 1000); // Generate a random 3-digit number
+            string uniqueId = "SH" + randomNumber.ToString();
+            return uniqueId;
         }
     }
 }

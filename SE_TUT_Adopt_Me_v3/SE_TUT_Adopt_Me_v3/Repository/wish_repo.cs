@@ -1,4 +1,5 @@
-﻿using SE_TUT_Adopt_Me_v3.Model;
+﻿using SE_TUT_Adopt_Me_v3.Factory;
+using SE_TUT_Adopt_Me_v3.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,11 +9,11 @@ namespace SE_TUT_Adopt_Me_v3.Repository
 {
     public class wish_repo
     {
-        static DatabaseEntities db = new DatabaseEntities();
+        static DatabaseEntities1 db = new DatabaseEntities1();
 
-        public void AddWishlist(wishlist Wishlist)
+        public void AddWishlist(string customerId, string petId, string itemId)
         {
-            db.wishlists.Add(Wishlist);
+            wish_factory.CreateWishlist(customerId, petId, itemId);
             db.SaveChanges();
         }
 

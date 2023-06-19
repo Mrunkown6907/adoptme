@@ -48,7 +48,7 @@
           <Key>
             <PropertyRef Name="item_header_id" />
           </Key>
-          <Property Name="item_header_id" Type="int" Nullable="false" />
+          <Property Name="item_header_id" Type="varchar" MaxLength="255" Nullable="false" />
           <Property Name="cart_id" Type="varchar" MaxLength="255" Nullable="false" />
           <Property Name="item_id" Type="varchar" MaxLength="255" Nullable="false" />
           <Property Name="quantity" Type="int" Nullable="false" />
@@ -70,7 +70,7 @@
           <Key>
             <PropertyRef Name="pet_header_id" />
           </Key>
-          <Property Name="pet_header_id" Type="int" Nullable="false" />
+          <Property Name="pet_header_id" Type="varchar" MaxLength="255" Nullable="false" />
           <Property Name="cart_id" Type="varchar" MaxLength="255" Nullable="false" />
           <Property Name="pet_id" Type="varchar" MaxLength="255" Nullable="false" />
           <Property Name="quantity" Type="int" Nullable="false" />
@@ -113,7 +113,7 @@ warning 6002: The table/view 'C:\USERS\MELVI\SOURCE\REPOS\SE_TUT_ADOPT_ME_V3\SE_
           <Property Name="pet_id" Type="varchar" MaxLength="255" />
           <Property Name="item_id" Type="varchar" MaxLength="255" />
         </EntityType>
-        <Association Name="FK__chat__customer_i__4D94879B">
+        <Association Name="FK__chat__customer_i__3E52440B">
           <End Role="customer" Type="Self.customer" Multiplicity="1">
             <OnDelete Action="Cascade" />
           </End>
@@ -127,7 +127,7 @@ warning 6002: The table/view 'C:\USERS\MELVI\SOURCE\REPOS\SE_TUT_ADOPT_ME_V3\SE_
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__chat__shop_id__4CA06362">
+        <Association Name="FK__chat__shop_id__3D5E1FD2">
           <End Role="shop" Type="Self.shop" Multiplicity="1" />
           <End Role="chat" Type="Self.chat" Multiplicity="*" />
           <ReferentialConstraint>
@@ -139,7 +139,7 @@ warning 6002: The table/view 'C:\USERS\MELVI\SOURCE\REPOS\SE_TUT_ADOPT_ME_V3\SE_
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__transacti__custo__5165187F">
+        <Association Name="FK__transacti__custo__4222D4EF">
           <End Role="customer" Type="Self.customer" Multiplicity="1" />
           <End Role="transactions" Type="Self.transactions" Multiplicity="*" />
           <ReferentialConstraint>
@@ -151,7 +151,7 @@ warning 6002: The table/view 'C:\USERS\MELVI\SOURCE\REPOS\SE_TUT_ADOPT_ME_V3\SE_
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__transacti__shop___52593CB8">
+        <Association Name="FK__transacti__shop___4316F928">
           <End Role="shop" Type="Self.shop" Multiplicity="1" />
           <End Role="transactions" Type="Self.transactions" Multiplicity="*" />
           <ReferentialConstraint>
@@ -163,7 +163,7 @@ warning 6002: The table/view 'C:\USERS\MELVI\SOURCE\REPOS\SE_TUT_ADOPT_ME_V3\SE_
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__wishlist__custom__47DBAE45">
+        <Association Name="FK__wishlist__custom__38996AB5">
           <End Role="customer" Type="Self.customer" Multiplicity="1">
             <OnDelete Action="Cascade" />
           </End>
@@ -177,7 +177,7 @@ warning 6002: The table/view 'C:\USERS\MELVI\SOURCE\REPOS\SE_TUT_ADOPT_ME_V3\SE_
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__wishlist__item_i__49C3F6B7">
+        <Association Name="FK__wishlist__item_i__3A81B327">
           <End Role="item" Type="Self.item" Multiplicity="0..1" />
           <End Role="wishlist" Type="Self.wishlist" Multiplicity="*" />
           <ReferentialConstraint>
@@ -189,7 +189,7 @@ warning 6002: The table/view 'C:\USERS\MELVI\SOURCE\REPOS\SE_TUT_ADOPT_ME_V3\SE_
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__wishlist__pet_id__48CFD27E">
+        <Association Name="FK__wishlist__pet_id__398D8EEE">
           <End Role="pet" Type="Self.pet" Multiplicity="0..1" />
           <End Role="wishlist" Type="Self.wishlist" Multiplicity="*" />
           <ReferentialConstraint>
@@ -307,31 +307,31 @@ warning 6002: The table/view 'C:\USERS\MELVI\SOURCE\REPOS\SE_TUT_ADOPT_ME_V3\SE_
     [wishlist].[item_id] AS [item_id]
     FROM [dbo].[wishlist] AS [wishlist]</DefiningQuery>
           </EntitySet>
-          <AssociationSet Name="FK__chat__customer_i__4D94879B" Association="Self.FK__chat__customer_i__4D94879B">
+          <AssociationSet Name="FK__chat__customer_i__3E52440B" Association="Self.FK__chat__customer_i__3E52440B">
             <End Role="customer" EntitySet="customer" />
             <End Role="chat" EntitySet="chat" />
           </AssociationSet>
-          <AssociationSet Name="FK__chat__shop_id__4CA06362" Association="Self.FK__chat__shop_id__4CA06362">
+          <AssociationSet Name="FK__chat__shop_id__3D5E1FD2" Association="Self.FK__chat__shop_id__3D5E1FD2">
             <End Role="shop" EntitySet="shop" />
             <End Role="chat" EntitySet="chat" />
           </AssociationSet>
-          <AssociationSet Name="FK__transacti__custo__5165187F" Association="Self.FK__transacti__custo__5165187F">
+          <AssociationSet Name="FK__transacti__custo__4222D4EF" Association="Self.FK__transacti__custo__4222D4EF">
             <End Role="customer" EntitySet="customer" />
             <End Role="transactions" EntitySet="transactions" />
           </AssociationSet>
-          <AssociationSet Name="FK__transacti__shop___52593CB8" Association="Self.FK__transacti__shop___52593CB8">
+          <AssociationSet Name="FK__transacti__shop___4316F928" Association="Self.FK__transacti__shop___4316F928">
             <End Role="shop" EntitySet="shop" />
             <End Role="transactions" EntitySet="transactions" />
           </AssociationSet>
-          <AssociationSet Name="FK__wishlist__custom__47DBAE45" Association="Self.FK__wishlist__custom__47DBAE45">
+          <AssociationSet Name="FK__wishlist__custom__38996AB5" Association="Self.FK__wishlist__custom__38996AB5">
             <End Role="customer" EntitySet="customer" />
             <End Role="wishlist" EntitySet="wishlist" />
           </AssociationSet>
-          <AssociationSet Name="FK__wishlist__item_i__49C3F6B7" Association="Self.FK__wishlist__item_i__49C3F6B7">
+          <AssociationSet Name="FK__wishlist__item_i__3A81B327" Association="Self.FK__wishlist__item_i__3A81B327">
             <End Role="item" EntitySet="item" />
             <End Role="wishlist" EntitySet="wishlist" />
           </AssociationSet>
-          <AssociationSet Name="FK__wishlist__pet_id__48CFD27E" Association="Self.FK__wishlist__pet_id__48CFD27E">
+          <AssociationSet Name="FK__wishlist__pet_id__398D8EEE" Association="Self.FK__wishlist__pet_id__398D8EEE">
             <End Role="pet" EntitySet="pet" />
             <End Role="wishlist" EntitySet="wishlist" />
           </AssociationSet>
@@ -384,8 +384,8 @@ warning 6002: The table/view 'C:\USERS\MELVI\SOURCE\REPOS\SE_TUT_ADOPT_ME_V3\SE_
           <Property Name="chat_id" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="shop_id" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="customer_id" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
-          <NavigationProperty Name="customer" Relationship="Self.FK__chat__customer_i__4D94879B" FromRole="chat" ToRole="customer" />
-          <NavigationProperty Name="shop" Relationship="Self.FK__chat__shop_id__4CA06362" FromRole="chat" ToRole="shop" />
+          <NavigationProperty Name="customer" Relationship="Self.FK__chat__customer_i__3E52440B" FromRole="chat" ToRole="customer" />
+          <NavigationProperty Name="shop" Relationship="Self.FK__chat__shop_id__3D5E1FD2" FromRole="chat" ToRole="shop" />
         </EntityType>
         <EntityType Name="customer">
           <Key>
@@ -398,9 +398,9 @@ warning 6002: The table/view 'C:\USERS\MELVI\SOURCE\REPOS\SE_TUT_ADOPT_ME_V3\SE_
           <Property Name="nama" Type="String" MaxLength="255" FixedLength="true" Unicode="false" Nullable="false" />
           <Property Name="pass" Type="String" MaxLength="255" FixedLength="true" Unicode="false" Nullable="false" />
           <Property Name="saldo" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="chats" Relationship="Self.FK__chat__customer_i__4D94879B" FromRole="customer" ToRole="chat" />
-          <NavigationProperty Name="transactions" Relationship="Self.FK__transacti__custo__5165187F" FromRole="customer" ToRole="transactions" />
-          <NavigationProperty Name="wishlist" Relationship="Self.FK__wishlist__custom__47DBAE45" FromRole="customer" ToRole="wishlist" />
+          <NavigationProperty Name="chats" Relationship="Self.FK__chat__customer_i__3E52440B" FromRole="customer" ToRole="chat" />
+          <NavigationProperty Name="transactions" Relationship="Self.FK__transacti__custo__4222D4EF" FromRole="customer" ToRole="transactions" />
+          <NavigationProperty Name="wishlist" Relationship="Self.FK__wishlist__custom__38996AB5" FromRole="customer" ToRole="wishlist" />
           <NavigationProperty Name="item_header" Relationship="Self.fk_cart_id_item_header" FromRole="customer" ToRole="item_header" />
           <NavigationProperty Name="pet_header" Relationship="Self.fk_cart_id_pet_header" FromRole="customer" ToRole="pet_header" />
         </EntityType>
@@ -415,7 +415,7 @@ warning 6002: The table/view 'C:\USERS\MELVI\SOURCE\REPOS\SE_TUT_ADOPT_ME_V3\SE_
           <Property Name="expiration_date" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="price" Type="Int32" Nullable="false" />
           <Property Name="item_image_path" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
-          <NavigationProperty Name="wishlists" Relationship="Self.FK__wishlist__item_i__49C3F6B7" FromRole="item" ToRole="wishlist" />
+          <NavigationProperty Name="wishlists" Relationship="Self.FK__wishlist__item_i__3A81B327" FromRole="item" ToRole="wishlist" />
           <NavigationProperty Name="item_header" Relationship="Self.fk_item_id_item_header" FromRole="item" ToRole="item_header" />
           <NavigationProperty Name="shop" Relationship="Self.fk_shop_id_item" FromRole="item" ToRole="shop" />
         </EntityType>
@@ -423,7 +423,7 @@ warning 6002: The table/view 'C:\USERS\MELVI\SOURCE\REPOS\SE_TUT_ADOPT_ME_V3\SE_
           <Key>
             <PropertyRef Name="item_header_id" />
           </Key>
-          <Property Name="item_header_id" Type="Int32" Nullable="false" />
+          <Property Name="item_header_id" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="cart_id" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="item_id" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="quantity" Type="Int32" Nullable="false" />
@@ -442,7 +442,7 @@ warning 6002: The table/view 'C:\USERS\MELVI\SOURCE\REPOS\SE_TUT_ADOPT_ME_V3\SE_
           <Property Name="gender" Type="String" MaxLength="10" FixedLength="true" Unicode="false" Nullable="false" />
           <Property Name="species" Type="String" MaxLength="255" FixedLength="true" Unicode="false" Nullable="false" />
           <Property Name="pet_image_path" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
-          <NavigationProperty Name="wishlists" Relationship="Self.FK__wishlist__pet_id__48CFD27E" FromRole="pet" ToRole="wishlist" />
+          <NavigationProperty Name="wishlists" Relationship="Self.FK__wishlist__pet_id__398D8EEE" FromRole="pet" ToRole="wishlist" />
           <NavigationProperty Name="pet_header" Relationship="Self.fk_pet_id_pet_header" FromRole="pet" ToRole="pet_header" />
           <NavigationProperty Name="shop" Relationship="Self.fk_shop_id_pet" FromRole="pet" ToRole="shop" />
         </EntityType>
@@ -450,7 +450,7 @@ warning 6002: The table/view 'C:\USERS\MELVI\SOURCE\REPOS\SE_TUT_ADOPT_ME_V3\SE_
           <Key>
             <PropertyRef Name="pet_header_id" />
           </Key>
-          <Property Name="pet_header_id" Type="Int32" Nullable="false" />
+          <Property Name="pet_header_id" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="cart_id" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="pet_id" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="quantity" Type="Int32" Nullable="false" />
@@ -468,10 +468,10 @@ warning 6002: The table/view 'C:\USERS\MELVI\SOURCE\REPOS\SE_TUT_ADOPT_ME_V3\SE_
           <Property Name="shop_pass" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="shop_saldo" Type="Int32" Nullable="false" />
           <Property Name="rating" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="chats" Relationship="Self.FK__chat__shop_id__4CA06362" FromRole="shop" ToRole="chat" />
+          <NavigationProperty Name="chats" Relationship="Self.FK__chat__shop_id__3D5E1FD2" FromRole="shop" ToRole="chat" />
           <NavigationProperty Name="items" Relationship="Self.fk_shop_id_item" FromRole="shop" ToRole="item" />
           <NavigationProperty Name="pets" Relationship="Self.fk_shop_id_pet" FromRole="shop" ToRole="pet" />
-          <NavigationProperty Name="transactions" Relationship="Self.FK__transacti__shop___52593CB8" FromRole="shop" ToRole="transactions" />
+          <NavigationProperty Name="transactions" Relationship="Self.FK__transacti__shop___4316F928" FromRole="shop" ToRole="transactions" />
         </EntityType>
         <EntityType Name="transaction">
           <Key>
@@ -481,8 +481,8 @@ warning 6002: The table/view 'C:\USERS\MELVI\SOURCE\REPOS\SE_TUT_ADOPT_ME_V3\SE_
           <Property Name="customer_id" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="shop_id" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="temp_saldo" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="customer" Relationship="Self.FK__transacti__custo__5165187F" FromRole="transactions" ToRole="customer" />
-          <NavigationProperty Name="shop" Relationship="Self.FK__transacti__shop___52593CB8" FromRole="transactions" ToRole="shop" />
+          <NavigationProperty Name="customer" Relationship="Self.FK__transacti__custo__4222D4EF" FromRole="transactions" ToRole="customer" />
+          <NavigationProperty Name="shop" Relationship="Self.FK__transacti__shop___4316F928" FromRole="transactions" ToRole="shop" />
         </EntityType>
         <EntityType Name="wish_list">
           <Key>
@@ -499,9 +499,9 @@ warning 6002: The table/view 'C:\USERS\MELVI\SOURCE\REPOS\SE_TUT_ADOPT_ME_V3\SE_
           <Property Name="customer_id" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="pet_id" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
           <Property Name="item_id" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="customer" Relationship="Self.FK__wishlist__custom__47DBAE45" FromRole="wishlist" ToRole="customer" />
-          <NavigationProperty Name="item" Relationship="Self.FK__wishlist__item_i__49C3F6B7" FromRole="wishlist" ToRole="item" />
-          <NavigationProperty Name="pet" Relationship="Self.FK__wishlist__pet_id__48CFD27E" FromRole="wishlist" ToRole="pet" />
+          <NavigationProperty Name="customer" Relationship="Self.FK__wishlist__custom__38996AB5" FromRole="wishlist" ToRole="customer" />
+          <NavigationProperty Name="item" Relationship="Self.FK__wishlist__item_i__3A81B327" FromRole="wishlist" ToRole="item" />
+          <NavigationProperty Name="pet" Relationship="Self.FK__wishlist__pet_id__398D8EEE" FromRole="wishlist" ToRole="pet" />
         </EntityType>
         <Association Name="fk_cart_id_wish_list">
           <End Role="cart" Type="Self.cart" Multiplicity="1" />
@@ -515,7 +515,7 @@ warning 6002: The table/view 'C:\USERS\MELVI\SOURCE\REPOS\SE_TUT_ADOPT_ME_V3\SE_
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__chat__customer_i__4D94879B">
+        <Association Name="FK__chat__customer_i__3E52440B">
           <End Role="customer" Type="Self.customer" Multiplicity="1">
             <OnDelete Action="Cascade" />
           </End>
@@ -529,7 +529,7 @@ warning 6002: The table/view 'C:\USERS\MELVI\SOURCE\REPOS\SE_TUT_ADOPT_ME_V3\SE_
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__chat__shop_id__4CA06362">
+        <Association Name="FK__chat__shop_id__3D5E1FD2">
           <End Role="shop" Type="Self.shop" Multiplicity="1" />
           <End Role="chat" Type="Self.chat" Multiplicity="*" />
           <ReferentialConstraint>
@@ -541,7 +541,7 @@ warning 6002: The table/view 'C:\USERS\MELVI\SOURCE\REPOS\SE_TUT_ADOPT_ME_V3\SE_
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__transacti__custo__5165187F">
+        <Association Name="FK__transacti__custo__4222D4EF">
           <End Role="customer" Type="Self.customer" Multiplicity="1" />
           <End Role="transactions" Type="Self.transaction" Multiplicity="*" />
           <ReferentialConstraint>
@@ -553,7 +553,7 @@ warning 6002: The table/view 'C:\USERS\MELVI\SOURCE\REPOS\SE_TUT_ADOPT_ME_V3\SE_
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__wishlist__custom__47DBAE45">
+        <Association Name="FK__wishlist__custom__38996AB5">
           <End Role="customer" Type="Self.customer" Multiplicity="1">
             <OnDelete Action="Cascade" />
           </End>
@@ -591,7 +591,7 @@ warning 6002: The table/view 'C:\USERS\MELVI\SOURCE\REPOS\SE_TUT_ADOPT_ME_V3\SE_
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__wishlist__item_i__49C3F6B7">
+        <Association Name="FK__wishlist__item_i__3A81B327">
           <End Role="item" Type="Self.item" Multiplicity="0..1" />
           <End Role="wishlist" Type="Self.wishlist" Multiplicity="*" />
           <ReferentialConstraint>
@@ -629,7 +629,7 @@ warning 6002: The table/view 'C:\USERS\MELVI\SOURCE\REPOS\SE_TUT_ADOPT_ME_V3\SE_
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__wishlist__pet_id__48CFD27E">
+        <Association Name="FK__wishlist__pet_id__398D8EEE">
           <End Role="pet" Type="Self.pet" Multiplicity="0..1" />
           <End Role="wishlist" Type="Self.wishlist" Multiplicity="*" />
           <ReferentialConstraint>
@@ -667,7 +667,7 @@ warning 6002: The table/view 'C:\USERS\MELVI\SOURCE\REPOS\SE_TUT_ADOPT_ME_V3\SE_
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__transacti__shop___52593CB8">
+        <Association Name="FK__transacti__shop___4316F928">
           <End Role="shop" Type="Self.shop" Multiplicity="1" />
           <End Role="transactions" Type="Self.transaction" Multiplicity="*" />
           <ReferentialConstraint>
@@ -679,7 +679,7 @@ warning 6002: The table/view 'C:\USERS\MELVI\SOURCE\REPOS\SE_TUT_ADOPT_ME_V3\SE_
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="DatabaseEntities" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="DatabaseEntities1" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="carts" EntityType="Self.cart" />
           <EntitySet Name="chats" EntityType="Self.chat" />
           <EntitySet Name="customers" EntityType="Self.customer" />
@@ -695,19 +695,19 @@ warning 6002: The table/view 'C:\USERS\MELVI\SOURCE\REPOS\SE_TUT_ADOPT_ME_V3\SE_
             <End Role="cart" EntitySet="carts" />
             <End Role="wish_list" EntitySet="wish_list" />
           </AssociationSet>
-          <AssociationSet Name="FK__chat__customer_i__4D94879B" Association="Self.FK__chat__customer_i__4D94879B">
+          <AssociationSet Name="FK__chat__customer_i__3E52440B" Association="Self.FK__chat__customer_i__3E52440B">
             <End Role="customer" EntitySet="customers" />
             <End Role="chat" EntitySet="chats" />
           </AssociationSet>
-          <AssociationSet Name="FK__chat__shop_id__4CA06362" Association="Self.FK__chat__shop_id__4CA06362">
+          <AssociationSet Name="FK__chat__shop_id__3D5E1FD2" Association="Self.FK__chat__shop_id__3D5E1FD2">
             <End Role="shop" EntitySet="shops" />
             <End Role="chat" EntitySet="chats" />
           </AssociationSet>
-          <AssociationSet Name="FK__transacti__custo__5165187F" Association="Self.FK__transacti__custo__5165187F">
+          <AssociationSet Name="FK__transacti__custo__4222D4EF" Association="Self.FK__transacti__custo__4222D4EF">
             <End Role="customer" EntitySet="customers" />
             <End Role="transactions" EntitySet="transactions" />
           </AssociationSet>
-          <AssociationSet Name="FK__wishlist__custom__47DBAE45" Association="Self.FK__wishlist__custom__47DBAE45">
+          <AssociationSet Name="FK__wishlist__custom__38996AB5" Association="Self.FK__wishlist__custom__38996AB5">
             <End Role="customer" EntitySet="customers" />
             <End Role="wishlist" EntitySet="wishlists" />
           </AssociationSet>
@@ -719,7 +719,7 @@ warning 6002: The table/view 'C:\USERS\MELVI\SOURCE\REPOS\SE_TUT_ADOPT_ME_V3\SE_
             <End Role="customer" EntitySet="customers" />
             <End Role="pet_header" EntitySet="pet_header" />
           </AssociationSet>
-          <AssociationSet Name="FK__wishlist__item_i__49C3F6B7" Association="Self.FK__wishlist__item_i__49C3F6B7">
+          <AssociationSet Name="FK__wishlist__item_i__3A81B327" Association="Self.FK__wishlist__item_i__3A81B327">
             <End Role="item" EntitySet="items" />
             <End Role="wishlist" EntitySet="wishlists" />
           </AssociationSet>
@@ -731,7 +731,7 @@ warning 6002: The table/view 'C:\USERS\MELVI\SOURCE\REPOS\SE_TUT_ADOPT_ME_V3\SE_
             <End Role="shop" EntitySet="shops" />
             <End Role="item" EntitySet="items" />
           </AssociationSet>
-          <AssociationSet Name="FK__wishlist__pet_id__48CFD27E" Association="Self.FK__wishlist__pet_id__48CFD27E">
+          <AssociationSet Name="FK__wishlist__pet_id__398D8EEE" Association="Self.FK__wishlist__pet_id__398D8EEE">
             <End Role="pet" EntitySet="pets" />
             <End Role="wishlist" EntitySet="wishlists" />
           </AssociationSet>
@@ -743,7 +743,7 @@ warning 6002: The table/view 'C:\USERS\MELVI\SOURCE\REPOS\SE_TUT_ADOPT_ME_V3\SE_
             <End Role="shop" EntitySet="shops" />
             <End Role="pet" EntitySet="pets" />
           </AssociationSet>
-          <AssociationSet Name="FK__transacti__shop___52593CB8" Association="Self.FK__transacti__shop___52593CB8">
+          <AssociationSet Name="FK__transacti__shop___4316F928" Association="Self.FK__transacti__shop___4316F928">
             <End Role="shop" EntitySet="shops" />
             <End Role="transactions" EntitySet="transactions" />
           </AssociationSet>
@@ -753,7 +753,7 @@ warning 6002: The table/view 'C:\USERS\MELVI\SOURCE\REPOS\SE_TUT_ADOPT_ME_V3\SE_
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="DatabaseModelStoreContainer" CdmEntityContainer="DatabaseEntities">
+        <EntityContainerMapping StorageEntityContainer="DatabaseModelStoreContainer" CdmEntityContainer="DatabaseEntities1">
           <EntitySetMapping Name="carts">
             <EntityTypeMapping TypeName="DatabaseModel.cart">
               <MappingFragment StoreEntitySet="cart">

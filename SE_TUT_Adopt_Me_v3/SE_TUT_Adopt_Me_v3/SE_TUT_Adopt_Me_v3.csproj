@@ -102,8 +102,8 @@
     </Content>
     <Content Include="Model\Model.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>Model.Context.cs</LastGenOutput>
       <DependentUpon>Model.edmx</DependentUpon>
+      <LastGenOutput>Model.Context.cs</LastGenOutput>
     </Content>
     <Content Include="Model\Model.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
@@ -2576,6 +2576,7 @@
     <Compile Include="Factory\trans_factory.cs" />
     <Compile Include="Factory\wish_factory.cs" />
     <Compile Include="Handler\cus_handler.cs" />
+    <Compile Include="Handler\shop_handler.cs" />
     <Compile Include="Model\cart.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>

@@ -1,4 +1,5 @@
-﻿using SE_TUT_Adopt_Me_v3.Model;
+﻿using SE_TUT_Adopt_Me_v3.Factory;
+using SE_TUT_Adopt_Me_v3.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,11 +9,11 @@ namespace SE_TUT_Adopt_Me_v3.Repository
 {
     public class item_header_repo
     {
-        static DatabaseEntities db = new DatabaseEntities();
+        static DatabaseEntities1 db = new DatabaseEntities1();
 
-        public void AddItemHeader(item_header ItemHeader)
+        public void AddItemHeader(string cartId, string itemId, int quantity)
         {
-            db.item_header.Add(ItemHeader);
+            item_header_factory.CreateItemHeader( cartId, itemId, quantity);
             db.SaveChanges();
         }
 
